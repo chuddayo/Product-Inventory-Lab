@@ -5,6 +5,27 @@ import org.junit.jupiter.api.Test;
 
 public class PaintingTest {
     @Test
+    public void paintingConstructorTest() {
+        // given
+        String ben = "Ben";
+        String sunset = "Sunset";
+        double height = 40.2;
+        double width = 27.1;
+        double price = 1699.99;
+        int id = 1;
+
+        // when
+        Painting bensPainting = new Painting(ben, sunset, height, width, price, id);
+
+        // then
+        Assertions.assertEquals(ben, bensPainting.getArtistName());
+        Assertions.assertEquals(sunset, bensPainting.getPaintingName());
+        Assertions.assertEquals(height, bensPainting.getHeight());
+        Assertions.assertEquals(width, bensPainting.getWidth());
+        Assertions.assertEquals(price, bensPainting.getPrice());
+        Assertions.assertEquals(id, bensPainting.getId());
+    }
+    @Test
     public void setArtistNameTest() {
         // given (1)
         String expected = "Floret";

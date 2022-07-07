@@ -16,13 +16,13 @@ public class Flower {
         this.isWrapped = false;
         this.qty = 1;
     }
-    public Flower(int id, String color, String flowerType, double price) {
+    public Flower(int id, String color, String flowerType, double price, boolean isWrapped, int qty) {
         this.id = id;
         this.color = color;
         this.flowerType = flowerType;
         this.price = price;
-        this.isWrapped = false;
-        this.qty = 1;
+        this.isWrapped = isWrapped;
+        this.qty = qty;
     }
 
 

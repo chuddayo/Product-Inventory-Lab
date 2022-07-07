@@ -2,6 +2,27 @@ package models;
 import org.junit.jupiter.api.*;
 public class FlowerTest {
     @Test
+    public void flowerConstructorTest() {
+        // given
+        int id = 47;
+        String color = "rose-y";
+        String flowerType = "Echinacea";
+        double price = 17.99;
+        boolean isWrapped = true;
+        int qty = 20;
+
+        // when
+        Flower flower = new Flower(id, color, flowerType, price, isWrapped, qty);
+
+        // then
+        Assertions.assertEquals(id, flower.getId());
+        Assertions.assertEquals(color, flower.getColor());
+        Assertions.assertEquals(flowerType, flower.getFlowerType());
+        Assertions.assertEquals(price, flower.getPrice());
+        Assertions.assertEquals(isWrapped, flower.isWrapped());
+        Assertions.assertEquals(qty, flower.getQty());
+    }
+    @Test
     public void setFlowerTypeTest() {
         // given (1)
         String expected = "Tulip";
