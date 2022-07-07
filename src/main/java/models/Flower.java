@@ -2,11 +2,11 @@ package models;
 
 public class Flower {
     private int id;
-    private int qty;
     private String color;
     private String flowerType;
     private boolean isWrapped;
     private double price;
+    private int qty;
 
     public Flower() {
         this.id = 0;
