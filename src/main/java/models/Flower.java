@@ -7,18 +7,24 @@ public class Flower {
     private String flowerType;
     private boolean isWrapped;
     private double price;
+
     public Flower() {
         this.id = 0;
         this.color = "N/A";
         this.flowerType = "N/A";
         this.price = 0;
+        this.isWrapped = false;
+        this.qty = 1;
     }
     public Flower(int id, String color, String flowerType, double price) {
         this.id = id;
         this.color = color;
         this.flowerType = flowerType;
         this.price = price;
+        this.isWrapped = false;
+        this.qty = 1;
     }
+
 
     public int getId() {
         return id;
