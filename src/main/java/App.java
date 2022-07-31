@@ -1,27 +1,31 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.Console;
 import services.FlowerService;
 import services.PaintingService;
 
-import java.util.Locale;
-import java.util.Scanner;
-
 public class App {
-    private FlowerService flowerService = new FlowerService();
-    private PaintingService paintingService = new PaintingService();
+    private FlowerService flowerService;
+    private PaintingService paintingService;
 
     public static void main(String[] args) {
         App application = new App();
-        application.init();
+        try {
+            application.init();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void init() {
+    public void init() throws JsonProcessingException {
+        flowerService = new FlowerService();
+        paintingService = new PaintingService();
+
         Console.printWelcome();
-        Scanner in = new Scanner(System.in);
         String input;
 
         do {
             Console.printMenu();
-            input = in.next().toLowerCase();
+            input = Console.getNextString().toLowerCase();
             switch (input) {
                 case "a":
                     Console.addProduct();
@@ -38,7 +42,6 @@ public class App {
                     Console.deleteProducts();
                     break;
             }
-
         } while (!input.equals("x"));
     }
 }

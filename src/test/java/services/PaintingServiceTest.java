@@ -1,5 +1,6 @@
 package services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import models.Flower;
 import models.Painting;
 import org.junit.jupiter.api.Assertions;
@@ -7,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class PaintingServiceTest {
     @Test
-    public void createTest() {
+    public void createTest() throws JsonProcessingException {
         // given
         String artistName = "Smith";
         String paintingName = "Genius";
