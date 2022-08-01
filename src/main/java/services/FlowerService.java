@@ -15,4 +15,7 @@ public class FlowerService {
         return createdFlower;
     }
 
+    public ArrayList<Flower> getInventory() {
+        return inventory;
+    }
 }

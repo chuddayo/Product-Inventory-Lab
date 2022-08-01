@@ -1,5 +1,6 @@
 
 import io.Console;
+import models.Painting;
 import services.FlowerService;
 import services.PaintingService;
 import java.io.IOException;
@@ -39,14 +40,14 @@ public class App {
                     }
                     break;
                 case "s":
-                    Console.printExisting();
+                    Console.printExisting(flowerService, paintingService);
                     break;
                 case "u":
-                    Console.printExisting();
+                    Console.printExisting(flowerService, paintingService);
                     Console.updateProducts();
                     break;
                 case "d":
-                    Console.printExisting();
+                    Console.printExisting(flowerService, paintingService);
                     Console.deleteProducts();
                     break;
             }

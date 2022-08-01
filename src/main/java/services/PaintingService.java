@@ -53,4 +53,7 @@ public class PaintingService {
         mapper.writeValue(Paths.get("paintings.json").toFile(), inventory);
     }
 
+    public List<Painting> getInventory() {
+        return inventory;
+    }
 }

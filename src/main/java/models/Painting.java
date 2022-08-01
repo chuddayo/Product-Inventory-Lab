@@ -146,4 +146,11 @@ public class Painting {
         return this;
     }
 
+    @Override
+    public String toString(){
+        String output = "";
+        output += paintingName + " by " + artistName + "\n";
+        output += "$" + price + "  " + width + "x" + height + "\n";
+        return output;
+    }
 }
