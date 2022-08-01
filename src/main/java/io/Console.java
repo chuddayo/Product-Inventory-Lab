@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class Console {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static String getStringInput(String prompt) {
-        println(prompt);
+    public static String getStringInput() {
         return scanner.nextLine();
     }
 
@@ -50,7 +49,8 @@ public class Console {
         );
     }
     public static void addProduct(){
-
+        System.out.println("Add a painting by typing: " +
+                "painting id artistName paintingName height width price");
     }
     public static void printExisting(){
 

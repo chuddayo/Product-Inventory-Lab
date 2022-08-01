@@ -1,9 +1,9 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import io.Console;
 import services.FlowerService;
 import services.PaintingService;
-
 import java.io.IOException;
+import java.util.Arrays;
 
 public class App {
     private FlowerService flowerService;
@@ -24,13 +24,19 @@ public class App {
 
         Console.printWelcome();
         String input;
+        String[] inputArray;
 
         do {
             Console.printMenu();
-            input = Console.getNextString().toLowerCase();
+            input = Console.getStringInput().toLowerCase();
             switch (input) {
                 case "a":
                     Console.addProduct();
+                    input = Console.getStringInput();
+                    inputArray = input.split(" ");
+                    if (inputArray[0].equalsIgnoreCase("painting")) {
+                        paintingService.createFromStringArray(Arrays.copyOfRange(inputArray, 1, inputArray.length));
+                    }
                     break;
                 case "s":
                     Console.printExisting();

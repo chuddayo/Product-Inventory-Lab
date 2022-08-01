@@ -1,46 +1,56 @@
 package services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import models.Painting;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class PaintingService {
     private static int nextId = 1;
-    private final List<Painting> inventory;
+    private List<Painting> inventory;
     private final ObjectMapper mapper = new ObjectMapper();
-    //private final ObjectWriter writer = new ObjectWriter();
 
-    public PaintingService() throws IOException {
+    public PaintingService() {
         inventory = readPaintingList();
+        System.out.println("pause");
     }
 
-    public Painting create(String artistName, String paintingName, double height, double width, double price) {
+    public Painting create(String artistName, String paintingName, double height, double width, double price) throws IOException {
         Painting createdPainting = new Painting(nextId++, artistName, paintingName, height, width, price);
-        inventory.add(createdPainting);
+        create(createdPainting);
         return createdPainting;
     }
 
-    public List<Painting> readPaintingList() throws IOException {
-        //mapper.writeValue(new File("example.json"), new Painting(2, "Billy", "Sunrise", 50.0, 24.0, 26.77));
-        //Painting myPainting = mapper.readValue(new File("paintings.json"), Painting.class);
+    public void create(Painting painting) throws IOException {
+        inventory.add(painting);
+        writePaintingList();
+    }
 
+    public void createFromStringArray(String[] paintingArray) throws IOException {
+        create(new Painting()
+                .withId(Integer.parseInt(paintingArray[0]))
+                .withArtistName(paintingArray[1])
+                .withPaintingName(paintingArray[2])
+                .withHeight(Double.parseDouble(paintingArray[3]))
+                .withWidth(Double.parseDouble(paintingArray[4]))
+                .withPrice(Double.parseDouble(paintingArray[5])));
+    }
+
+    public List<Painting> readPaintingList() {
         try {
-            return Arrays.asList(mapper.readValue(new File("paintings.json"), Painting[].class));
+            return new ArrayList<>(Arrays.asList(mapper.readValue(Paths.get("paintings.json").toFile(), Painting[].class)));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
-        //return new ArrayList<>(Collections.singletonList(myPainting));
+    }
+
+    public void writePaintingList() throws IOException {
+        mapper.writeValue(Paths.get("paintings.json").toFile(), inventory);
     }
 
 }
-// Paths.get("paintings.json").toFile()

@@ -1,11 +1,8 @@
 package services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import models.Flower;
 import models.Painting;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 
 public class PaintingServiceTest {
@@ -26,9 +23,9 @@ public class PaintingServiceTest {
         int actualId = testPainting.getId();
         String actualArtistName = testPainting.getArtistName();
         String actualPaintingName = testPainting.getPaintingName();
-        double actualHeight = testPainting.getHeight();
-        double actualWidth = testPainting.getWidth();
-        double actualPrice = testPainting.getPrice();
+        double actualHeight = (double) testPainting.getHeight();
+        double actualWidth = (double) testPainting.getWidth();
+        double actualPrice = (double) testPainting.getPrice();
 
         Assertions.assertEquals(Integer.class.getName(), new Integer(actualId).getClass().getName());
         Assertions.assertEquals(artistName, actualArtistName);
