@@ -2,7 +2,6 @@ package services;
 
 import models.Painting;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ public class PaintingService {
 
     public PaintingService() {
         inventory = readPaintingList();
-        System.out.println("pause");
     }
 
     public Painting create(String artistName, String paintingName, double height, double width, double price) throws IOException {

@@ -12,7 +12,7 @@ public class FlowerTest {
         int qty = 20;
 
         // when
-        Flower flower = new Flower(id, color, flowerType, price, isWrapped, qty);
+        Flower flower = new Flower(id, color, flowerType, isWrapped, price);
 
         // then
         Assertions.assertEquals(id, flower.getId());
@@ -20,7 +20,6 @@ public class FlowerTest {
         Assertions.assertEquals(flowerType, flower.getFlowerType());
         Assertions.assertEquals(price, flower.getPrice());
         Assertions.assertEquals(isWrapped, flower.isWrapped());
-        Assertions.assertEquals(qty, flower.getQty());
     }
     @Test
     public void setFlowerTypeTest() {
@@ -72,19 +71,6 @@ public class FlowerTest {
 
         // then
         Assertions.assertEquals(expected, testFlower.getColor());
-    }
-
-    @Test
-    public void setQtyTest() {
-        // given
-        int expected = 47;
-
-        // when
-        Flower testFlower = new Flower();
-        testFlower.setQty(expected);
-
-        // then
-        Assertions.assertEquals(expected, testFlower.getQty());
     }
 
     @Test

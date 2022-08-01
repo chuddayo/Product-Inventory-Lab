@@ -58,13 +58,13 @@ public class Console {
                 "painting id artistName paintingName height width price");
     }
     public static void printExisting(FlowerService flowerService, PaintingService paintingService){
-        if (!paintingService.getInventory().isEmpty()){
+        if (paintingService.getInventory() != null && !paintingService.getInventory().isEmpty()){
             System.out.println("PAINTINGS");
             for (Painting p : paintingService.getInventory()) {
                 System.out.println(p);
             }
         }
-        if (!flowerService.getInventory().isEmpty()){
+        if (flowerService.getInventory() != null && !flowerService.getInventory().isEmpty()){
             System.out.println("FLOWERS");
             for (Flower f : flowerService.getInventory()) {
                 System.out.println(f);
