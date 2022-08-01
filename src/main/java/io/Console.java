@@ -35,8 +35,8 @@ public class Console {
     public static void printWelcome(){
         System.out.println("" +
                 "**************************************************\n" +
-                "***                 Welcome to                 ***\n" +
-                "***          ZipCo Inventory Manager           ***\n" +
+                "***              Welcome to ZipCo              ***\n" +
+                "***            Paintings & Flowers             ***\n" +
                 "**************************************************");
     }
     public static void printMenu(){

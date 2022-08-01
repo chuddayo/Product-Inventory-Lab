@@ -15,7 +15,7 @@ public class PaintingTest {
         int id = 1;
 
         // when
-        Painting bensPainting = new Painting(ben, sunset, height, width, price, id);
+        Painting bensPainting = new Painting(id, ben, sunset, height, width, price);
 
         // then
         Assertions.assertEquals(ben, bensPainting.getArtistName());

@@ -3,6 +3,8 @@ import io.Console;
 import services.FlowerService;
 import services.PaintingService;
 
+import java.io.IOException;
+
 public class App {
     private FlowerService flowerService;
     private PaintingService paintingService;
@@ -11,12 +13,12 @@ public class App {
         App application = new App();
         try {
             application.init();
-        } catch (JsonProcessingException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void init() throws JsonProcessingException {
+    public void init() throws IOException {
         flowerService = new FlowerService();
         paintingService = new PaintingService();
 

@@ -6,9 +6,11 @@ import models.Painting;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public class PaintingServiceTest {
     @Test
-    public void createTest() throws JsonProcessingException {
+    public void createTest() throws IOException {
         // given
         String artistName = "Smith";
         String paintingName = "Genius";
