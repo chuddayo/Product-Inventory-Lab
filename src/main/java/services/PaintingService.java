@@ -1,5 +1,6 @@
 package services;
 
+import models.Flower;
 import models.Painting;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -55,10 +56,25 @@ public class PaintingService {
         return inventory;
     }
 
-    public void removeInventory(int id) {
+    public void removeInventory(int id) throws IOException {
         for (Painting p : inventory) {
             if (p.getId() == id) {
                 inventory.remove(p);
+                writePaintingList();
+                break;
+            }
+        }
+    }
+
+    public void updateInventory(int id, String[] updateDetails) throws IOException {
+        for (Painting p : inventory) {
+            if (p.getId() == id) {
+                p.setArtistName(updateDetails[0]);
+                p.setPaintingName(updateDetails[1]);
+                p.setHeight(Double.parseDouble(updateDetails[2]));
+                p.setWidth(Double.parseDouble(updateDetails[3]));
+                p.setPrice(Double.parseDouble(updateDetails[4]));
+                writePaintingList();
                 break;
             }
         }

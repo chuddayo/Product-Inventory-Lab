@@ -1,6 +1,7 @@
 package services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import models.Flower;
 import models.Painting;
 
@@ -54,10 +55,23 @@ public class FlowerService {
         return inventory;
     }
 
-    public void removeInventory(int id) {
+    public void removeInventory(int id) throws IOException {
         for (Flower f : inventory) {
             if (f.getId() == id) {
                 inventory.remove(f);
+                writeFlowerList();
+                break;
+            }
+        }
+    }
+    public void updateInventory(int id, String[] updateDetails) throws IOException {
+        for (Flower f : inventory) {
+            if (f.getId() == id) {
+                f.setColor(updateDetails[0]);
+                f.setFlowerType(updateDetails[1]);
+                f.setWrapped(Boolean.parseBoolean(updateDetails[2]));
+                f.setPrice(Double.parseDouble(updateDetails[3]));
+                writeFlowerList();
                 break;
             }
         }

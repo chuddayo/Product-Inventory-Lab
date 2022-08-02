@@ -50,6 +50,11 @@ public class App {
                 case "u":
                     Console.printExisting(flowerService, paintingService);
                     Console.updateProducts();
+                    int idToUpdate = Integer.parseInt(Console.getStringInput());
+                    Console.println("Enter updated info for item #" + idToUpdate);
+                    input = Console.getStringInput();
+                    inputArray = input.split(" ");
+                    inventoryService.updateItemByID(idToUpdate, inputArray);
                     break;
                 case "d":
                     Console.printExisting(flowerService, paintingService);

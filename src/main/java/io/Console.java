@@ -74,7 +74,7 @@ public class Console {
     }
 
     public static void updateProducts(){
-
+        System.out.println("Enter the ID number of the item you'd like to update info for:");
     }
 
     public static void deleteProducts(){
