@@ -4,7 +4,6 @@ import models.Flower;
 import models.Painting;
 import services.FlowerService;
 import services.PaintingService;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -79,4 +78,6 @@ public class Console {
     public static void deleteProducts(){
 
     }
+
+    // TODO read/write nextID from file
 }

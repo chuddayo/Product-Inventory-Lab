@@ -1,6 +1,5 @@
 
 import io.Console;
-import models.Painting;
 import services.FlowerService;
 import services.PaintingService;
 import java.io.IOException;
