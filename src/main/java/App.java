@@ -1,6 +1,8 @@
 
 import io.Console;
 import services.FlowerService;
+import services.IDService;
+import services.InventoryService;
 import services.PaintingService;
 import java.io.IOException;
 import java.util.Arrays;
@@ -8,6 +10,7 @@ import java.util.Arrays;
 public class App {
     private FlowerService flowerService;
     private PaintingService paintingService;
+    private InventoryService inventoryService;
 
     public static void main(String[] args) {
         App application = new App();
@@ -21,6 +24,7 @@ public class App {
     public void init() throws IOException {
         flowerService = new FlowerService();
         paintingService = new PaintingService();
+        inventoryService = new InventoryService(flowerService, paintingService);
 
         Console.printWelcome();
         String input;
@@ -50,6 +54,8 @@ public class App {
                 case "d":
                     Console.printExisting(flowerService, paintingService);
                     Console.deleteProducts();
+                    input = Console.getStringInput();
+                    inventoryService.removeItemByID(Integer.parseInt(input));
                     break;
             }
         } while (!input.equals("x"));

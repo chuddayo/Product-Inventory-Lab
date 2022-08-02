@@ -54,4 +54,13 @@ public class PaintingService {
     public List<Painting> getInventory() {
         return inventory;
     }
+
+    public void removeInventory(int id) {
+        for (Painting p : inventory) {
+            if (p.getId() == id) {
+                inventory.remove(p);
+                break;
+            }
+        }
+    }
 }

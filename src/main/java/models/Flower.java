@@ -95,7 +95,7 @@ public class Flower {
     @Override
     public String toString(){
         String output = "";
-        output += color + " " + flowerType + "\n";
+        output += color + " " + flowerType + " ID#:" + id + "\n";
         if (isWrapped) output += "wrapped ";
         else output += "not wrapped ";
         output += "for $" + price + "\n";

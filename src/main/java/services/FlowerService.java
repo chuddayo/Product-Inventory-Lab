@@ -2,6 +2,8 @@ package services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.Flower;
+import models.Painting;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -50,5 +52,14 @@ public class FlowerService {
     }
     public List<Flower> getInventory() {
         return inventory;
+    }
+
+    public void removeInventory(int id) {
+        for (Flower f : inventory) {
+            if (f.getId() == id) {
+                inventory.remove(f);
+                break;
+            }
+        }
     }
 }

@@ -78,6 +78,6 @@ public class Console {
     }
 
     public static void deleteProducts(){
-
+        System.out.println("Enter the ID number of the item you'd like to remove from inventory:");
     }
 }

@@ -149,7 +149,7 @@ public class Painting {
     @Override
     public String toString(){
         String output = "";
-        output += paintingName + " by " + artistName + "\n";
+        output += paintingName + " by " + artistName + " ID#:" + id + "\n";
         output += "$" + price + "  " + width + "x" + height + "\n";
         return output;
     }
