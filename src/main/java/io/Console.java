@@ -54,7 +54,9 @@ public class Console {
     }
     public static void addProduct(){
         System.out.println("Add a painting by typing: " +
-                "painting id artistName paintingName height width price");
+                "painting <artistName> <paintingName> <height> <width> <price>\n" +
+                "Add a flower by typing: " +
+                "flower <color> <flowerType> <isWrapped true or false> <price>");
     }
     public static void printExisting(FlowerService flowerService, PaintingService paintingService){
         if (paintingService.getInventory() != null && !paintingService.getInventory().isEmpty()){
@@ -78,6 +80,4 @@ public class Console {
     public static void deleteProducts(){
 
     }
-
-    // TODO read/write nextID from file
 }

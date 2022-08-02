@@ -36,6 +36,8 @@ public class App {
                     inputArray = input.split(" ");
                     if (inputArray[0].equalsIgnoreCase("painting")) {
                         paintingService.createFromStringArray(Arrays.copyOfRange(inputArray, 1, inputArray.length));
+                    } else if (inputArray[0].equalsIgnoreCase("flower")) {
+                        flowerService.createFromStringArray(Arrays.copyOfRange(inputArray, 1, inputArray.length));
                     }
                     break;
                 case "s":

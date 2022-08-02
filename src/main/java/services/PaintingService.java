@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PaintingService {
-    private static int nextId = 1;
     private List<Painting> inventory;
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -18,7 +17,7 @@ public class PaintingService {
     }
 
     public Painting create(String artistName, String paintingName, double height, double width, double price) throws IOException {
-        Painting createdPainting = new Painting(nextId++, artistName, paintingName, height, width, price);
+        Painting createdPainting = new Painting(IDService.getNextID(), artistName, paintingName, height, width, price);
         create(createdPainting);
         return createdPainting;
     }
@@ -26,16 +25,17 @@ public class PaintingService {
     public void create(Painting painting) throws IOException {
         inventory.add(painting);
         writePaintingList();
+        IDService.setTextToFile(String.valueOf(IDService.getNextID() + 1), "nextid.txt");
     }
 
     public void createFromStringArray(String[] paintingArray) throws IOException {
         create(new Painting()
-                .withId(Integer.parseInt(paintingArray[0]))
-                .withArtistName(paintingArray[1])
-                .withPaintingName(paintingArray[2])
-                .withHeight(Double.parseDouble(paintingArray[3]))
-                .withWidth(Double.parseDouble(paintingArray[4]))
-                .withPrice(Double.parseDouble(paintingArray[5])));
+                .withId(IDService.getNextID())
+                .withArtistName(paintingArray[0])
+                .withPaintingName(paintingArray[1])
+                .withHeight(Double.parseDouble(paintingArray[2]))
+                .withWidth(Double.parseDouble(paintingArray[3]))
+                .withPrice(Double.parseDouble(paintingArray[4])));
     }
 
     public List<Painting> readPaintingList() {

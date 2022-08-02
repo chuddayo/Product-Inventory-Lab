@@ -10,7 +10,7 @@ public class IDServiceTest {
     public void readFileTest() {
         String expected = "4";
 
-        String actual = IDService.readFile("nextid.txt");
+        String actual = IDService.readFileNextInteger();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -20,7 +20,7 @@ public class IDServiceTest {
         String expected = "77";
         IDService.setTextToFile(expected, "nextid.txt");
 
-        String actual = IDService.readFile("nextid.txt");
+        String actual = IDService.readFileNextInteger();
 
         Assertions.assertEquals(expected, actual);
     }

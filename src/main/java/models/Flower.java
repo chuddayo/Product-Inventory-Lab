@@ -92,4 +92,13 @@ public class Flower {
         this.price = price;
         return this;
     }
+    @Override
+    public String toString(){
+        String output = "";
+        output += color + " " + flowerType + "\n";
+        if (isWrapped) output += "wrapped ";
+        else output += "not wrapped ";
+        output += "for $" + price + "\n";
+        return output;
+    }
 }

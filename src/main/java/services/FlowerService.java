@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FlowerService {
-    private static int nextId = 1;
     private List<Flower> inventory;
     private final ObjectMapper mapper = new ObjectMapper();
     public FlowerService() {
@@ -18,7 +17,7 @@ public class FlowerService {
     }
 
     public Flower create(String color, String flowerType, boolean isWrapped, double price) throws IOException {
-        Flower createdFlower = new Flower(nextId++, color, flowerType, isWrapped, price);
+        Flower createdFlower = new Flower(IDService.getNextID(), color, flowerType, isWrapped, price);
         create(createdFlower);
         return createdFlower;
     }
@@ -26,15 +25,16 @@ public class FlowerService {
     public void create(Flower flower) throws IOException {
         inventory.add(flower);
         writeFlowerList();
+        IDService.setTextToFile(String.valueOf(IDService.getNextID() + 1), "nextid.txt");
     }
 
     public void createFromStringArray(String[] flowerArray) throws IOException {
         create(new Flower()
-                .withId(Integer.parseInt(flowerArray[0]))
-                .withColor(flowerArray[1])
-                .withFlowerType(flowerArray[2])
-                .withIsWrapped(Boolean.parseBoolean(flowerArray[3]))
-                .withPrice(Double.parseDouble(flowerArray[4])));
+                .withId(IDService.getNextID())
+                .withColor(flowerArray[0])
+                .withFlowerType(flowerArray[1])
+                .withIsWrapped(Boolean.parseBoolean(flowerArray[2]))
+                .withPrice(Double.parseDouble(flowerArray[3])));
     }
 
     public List<Flower> readFlowerList() {

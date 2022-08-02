@@ -3,9 +3,9 @@ package services;
 import java.io.*;
 
 public class IDService {
-    public static String readFile(String fileName) {
+    public static String readFileNextInteger() {
         String nextID;
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("nextid.txt"))) {
             nextID = br.readLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -20,5 +20,9 @@ public class IDService {
             writer.println(str);
         }
         writer.close();
+    }
+
+    public static int getNextID(){
+        return Integer.parseInt(readFileNextInteger());
     }
 }
